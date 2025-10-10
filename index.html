@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Raj | Software Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced CSS Variables for Dark Theme with More Depth */
+        :root {
+            --background-dark: #1a1a1a;
+            --background-darker: #0f0f0f;
+            --text-light: #ffffff;
+            --text-secondary: #aaaaaa;
+            --accent-color: #00aaff; /* Vibrant blue accent */
+            --accent-hover: #0099dd;
+            --header-font: 'Montserrat', sans-serif;
+            --shadow-light: rgba(0, 170, 255, 0.2);
+            --shadow-dark: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: var(--header-font);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Smooth Scrolling and Animations */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header / Hero Section --- Enhanced with Gradient and Fade-in */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0 100px 0;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--background-darker) 0%, var(--background-dark) 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-section h1 {
+            font-size: 4.5em;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin: 0;
+            color: var(--text-light);
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px var(--shadow-dark);
+        }
+
+        .hero-section p.subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: var(--accent-color);
+            margin-top: 10px;
+            animation: slideInLeft 1s ease-out 0.5s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact-info {
+            font-size: 1em;
+            color: var(--text-secondary);
+            margin-top: 20px;
+            animation: slideInRight 1s ease-out 1s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--text-light);
+            transform: scale(1.05);
+        }
+
+        /* --- Section Titles --- Enhanced with Underline Animation */
+        .section {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
+        }
+
+        .section-subtitle {
+            font-size: 1em;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* --- Profile/Text Block --- Enhanced Typography */
+        .profile-text {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            text-align: justify;
+            padding-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* --- Skills Styling --- Enhanced with Icons and Sliding Animation */
+        .skills-group h3 {
+            color: var(--text-light);
+            font-size: 1.2em;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin-left: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: rgba(0, 170, 255, 0.1);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            border-radius: 25px; /* More rounded for modern look */
+            margin: 5px 10px 5px 0;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInSkills 0.6s ease forwards;
+        }
+
+        .skill-tag:nth-child(1) { animation-delay: 0.1s; }
+        .skill-tag:nth-child(2) { animation-delay: 0.2s; }
+        .skill-tag:nth-child(3) { animation-delay: 0.3s; }
+        .skill-tag:nth-child(4) { animation-delay: 0.4s; }
+        .skill-tag:nth-child(5) { animation-delay: 0.5s; }
+        .skill-tag:nth-child(6) { animation-delay: 0.6s; }
+        /* Continue for more items as needed */
+
+        @keyframes slideInSkills {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--accent-color);
+            color: var(--background-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+
+        .skill-tag i {
+            font-size: 1.1em;
+            width: 16px;
+        }
+        
+        /* --- Entry Styling (Experience, Education, Projects) --- Enhanced with Hover Effects */
+        .entry {
+            margin-bottom: 35px;
+            padding: 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            transition: width 0.6s ease;
+        }
+
+        .entry:hover::before {
+            width: 100%;
+        }
+
+        .entry:hover {
+            border-left: 6px solid var(--accent-color);
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transform: translateX(5px);
+        }
+        
+        .entry h4 {
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .entry-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .entry-details p {
+            margin: 5px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.95em;
+        }
+
+        .entry-details .timeframe {
+            font-weight: 600;
+            color: var(--accent-color);
+            white-space: nowrap;
+        }
+
+        .entry ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .entry ul li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            position: relative;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .entry:hover ul li {
+            color: var(--text-light);
+        }
+        
+        .entry ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Specific List for Languages/Interests --- Added Icons */
+        .small-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .small-list li {
+            margin-bottom: 5px;
+            color: var(--text-secondary);
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .small-list li:hover {
+            color: var(--accent-color);
+        }
+
+        .small-list li i {
+            color: var(--accent-color);
+            width: 16px;
+        }
+
+        /* --- Footer --- Enhanced */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 50px;
+            background: var(--background-darker);
+            border-radius: 10px;
+        }
+
+        /* Responsive Design Improvements */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 3em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .skill-list {
+                justify-content: center;
+            }
+
+            .entry-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Intersection Observer for Scroll Animations (via JS below) */
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="hero-section">
+            <h1>AMAN RAJ</h1>
+            <p class="subtitle">Software Developer (Python/Django)</p>
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span> | 
+                <a href="tel:+919097972453"><i class="fas fa-phone"></i> +91 9097972453</a> | 
+                <a href="mailto:ar.amanraj01@gmail.com"><i class="fas fa-envelope"></i> ar.amanraj01@gmail.com</a> |
+                <a href="https://www.linkedin.com/in/aman-raj-601534224/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+                <!-- <a href="[Your GitHub URL]" target="_blank"><i class="fab fa-github"></i> GitHub</a> -->
+            </div>
+        </div>
+
+        <div class="section" id="profile">
+            <p class="section-subtitle">ABOUT</p>
+            <h2 class="section-title">Who I Am</h2>
+            <p class="profile-text">
+                Detail-oriented software developer with a Master’s in Computer Applications and proven
+                experience in developing robust web applications using Python/Django. Proficient in full-stack technologies, including JavaScript, and SQL Server, with a strong focus on building efficient patient management systems (HIS). Expertise in user authentication, data validation, and dynamic form handling. Committed to delivering high-quality code, optimizing application performance, and applying best practices in software development. Strong problem-solving skills and a dedication to enhancing user experience.
+            </p>
+        </div>
+
+        <div class="section" id="experience">
+            <p class="section-subtitle">CAREER PATH</p>
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="entry">
+                <div class="entry-details">
+                    <h4>Associate in Information Technology (Development & Application Support)</h4>
+                    <p class="timeframe">Dec 2024 – Present</p>
+                </div>
+                <p class="entry-title">Cytecare Hospital</p>
+                <ul>
+                    <li>Developed and maintained internal hospital web applications using Python (Django), HTML, CSS, JavaScript, and AJAX to enhance and complement HIS operations.</li>
+                    <li>Provided application and IT support for the existing Hospital Information System (HIS), assisting staff with day-to-day issues, troubleshooting errors, and coordinating with vendors.</li>
+                    <li>Implemented AJAX for asynchronous data loading, significantly improving application performance and user experience.</li>
+                    <li>Collaborated with clinical, administrative, and IT teams to understand requirements and deliver user-friendly solutions.</li>
+                </ul>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-details">
+                    <h4>Java Developer Intern</h4>
+                    <p class="timeframe">Dates/Duration Here</p>
+                </div>
+                <p class="entry-title">Octanet Services Pvt Ltd</p>
+                <ul>
+                    <li>Developed and maintained Java applications using **Spring and Hibernate** frameworks.</li>
+                    <li>Debugged and resolved code issues to enhance application performance.</li>
+                    <li>Actively contributed to **Agile sprints**, including planning and retrospectives.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="skills">
+            <p class="section-subtitle">MY TOOLKIT</p>
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-group">
+                <h3>Programming Languages & Frameworks</h3>
+                <ul class="skill-list">
+                    <li class="skill-tag"><i class="fab fa-python"></i> Python</li>
+                    <li class="skill-tag"><i class="fas fa-cogs"></i> Django</li>
+                    <li class="skill-tag"><i class="fas fa-exchange-alt"></i> Django REST Framework</li>
+                    <li class="skill-tag"><i class="fab fa-java"></i> Java</li>
+                </ul>
+                
+                <h3>Web Technologies & Frontend</h3>
+                <ul class="skill-list">
+                    <li class="skill-tag"><i class="fab fa-html5"></i> HTML</li>
+                    <li class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</li>
+                    <li class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</li>
+                    <li class="skill-tag"><i class="fab fa-js-square"></i> jQuery</li>
+                    <li class="skill-tag"><i class="fas fa-sync-alt"></i> AJAX</li>
+                    <li class="skill-tag"><i class="fab fa-bootstrap"></i> Bootstrap (for responsive design)</li>
+                </ul>
+                
+                <h3>Database & Tools</h3>
+                <ul class="skill-list">
+                    <li class="skill-tag"><i class="fas fa-database"></i> MySQL</li>
+                    <li class="skill-tag"><i class="fas fa-database"></i> MSSQL</li>
+                    <li class="skill-tag"><i class="fas fa-database"></i> Postgres</li>
+                    <li class="skill-tag"><i class="fas fa-chart-bar"></i> Chart.js (Data Visualization)</li>
+                    <li class="skill-tag"><i class="fas fa-envelope"></i> SMTP</li>
+                    <li class="skill-tag"><i class="fas fa-file-alt"></i> Python Logging Module</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section" id="projects">
+            <p class="section-subtitle">WORKS</p>
+            <h2 class="section-title">Personal Projects</h2>
+            
+            <div class="entry">
+                <div class="entry-details">
+                    <h4>COVID-19 Vaccination Progress Analysis</h4>
+                    <p class="timeframe">Data Analytics Project</p>
+                </div>
+                <p class="entry-title">Led a data analytics project using Python to analyze COVID-19 vaccination progress.</p>
+                <ul>
+                    <li>Utilized **Anaconda Jupyter Notebook & Python** for core data analysis and modeling.</li>
+                    <li>Extracted valuable insights used to inform policy-making and resource allocation.</li>
+                    <li>Contributed analytical findings that supported successful vaccination efforts.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="education">
+            <p class="section-subtitle">LEARNING</p>
+            <h2 class="section-title">Education & Certifications</h2>
+            
+            <div class="entry">
+                <div class="entry-details">
+                    <h4>Master of Computer Applications (80.00%)</h4>
+                    <p class="timeframe">Jan 2023 – Oct 2024</p>
+                </div>
+                <p class="entry-title">Visvesvaraya Technological University, Bangalore</p>
+            </div>
+            <div class="entry">
+                <div class="entry-details">
+                    <h4>Bachelor of Computer Applications (66.43%)</h4>
+                    <p class="timeframe">Dec 2018 – Jan 2022</p>
+                </div>
+                <p class="entry-title">Indira Gandhi National Open University, Delhi</p>
+            </div>
+            
+            <h3 style="color: var(--accent-color); margin-top: 30px;">Certifications</h3>
+            <ul class="skill-list">
+                <li class="skill-tag"><i class="fas fa-certificate"></i> MySQL Basics</li>
+                <li class="skill-tag"><i class="fas fa-certificate"></i> Big Data Computing</li>
+                <li class="skill-tag"><i class="fas fa-certificate"></i> Network Security</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="other">
+            <p class="section-subtitle">OTHERS</p>
+            <h2 class="section-title">Soft Skills & Interests</h2>
+            
+            <h3 style="color: var(--accent-color); margin-top: 0;">Soft Skills</h3>
+            <ul class="skill-list">
+                <li class="skill-tag"><i class="fas fa-users"></i> Communication</li>
+                <li class="skill-tag"><i class="fas fa-handshake"></i> Collaboration</li>
+                <li class="skill-tag"><i class="fas fa-lightbulb"></i> Problem-Solving</li>
+                <li class="skill-tag"><i class="fas fa-exchange-alt"></i> Adaptability</li>
+                <li class="skill-tag"><i class="fas fa-graduation-cap"></i> Continuous Learning</li>
+            </ul>
+            
+            <h3 style="color: var(--accent-color); margin-top: 30px;">Languages</h3>
+            <ul class="small-list">
+                <li><i class="fas fa-language"></i> Hindi – Native/Bilingual Proficiency</li>
+                <li><i class="fas fa-language"></i> English – Full Professional Proficiency</li>
+                <li><i class="fas fa-language"></i> German – Beginner</li>
+            </ul>
+            
+            <h3 style="color: var(--accent-color); margin-top: 30px;">Interests</h3>
+            <ul class="small-list">
+                <li><i class="fas fa-shield-alt"></i> Ethical Hacking</li>
+                <li><i class="fas fa-code"></i> Software Development</li>
+            </ul>
+        </div>
+
+        <footer>
+            <small><i class="fas fa-heart" style="color: var(--accent-color);"></i> Designed and Built by Aman Raj | Inspired by Modern Dark Portfolio Themes</small>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Scroll Animations using Intersection Observer -->
+    <script>
+        // Intersection Observer for fade-in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Additional smooth hover effects or other interactions if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preload animations for skills if desired
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
