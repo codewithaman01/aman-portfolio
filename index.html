@@ -4,588 +4,388 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aman Raj | Software Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Load AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        /* Enhanced CSS Variables for Dark Theme with More Depth */
+        /* Custom styles for the dark theme */
         :root {
-            --background-dark: #1a1a1a;
-            --background-darker: #0f0f0f;
-            --text-light: #ffffff;
-            --text-secondary: #aaaaaa;
-            --accent-color: #00aaff; /* Vibrant blue accent */
-            --accent-hover: #0099dd;
-            --header-font: 'Montserrat', sans-serif;
-            --shadow-light: rgba(0, 170, 255, 0.2);
-            --shadow-dark: rgba(0, 0, 0, 0.5);
+            --accent-color: #06b6d4; /* Tailwind cyan-500 */
         }
-
         body {
-            font-family: var(--header-font);
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Pure Black */
+            color: #e5e5e5; /* Near-white text */
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Smooth Scrolling and Animations */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* --- Header / Hero Section --- Enhanced with Gradient and Fade-in */
-        .hero-section {
-            text-align: center;
-            padding: 80px 0 100px 0;
-            margin-bottom: 50px;
-            background: linear-gradient(135deg, var(--background-darker) 0%, var(--background-dark) 100%);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px var(--shadow-dark);
-            animation: fadeInDown 1s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-section h1 {
-            font-size: 4.5em;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin: 0;
-            color: var(--text-light);
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px var(--shadow-dark);
-        }
-
-        .hero-section p.subtitle {
-            font-size: 1.5em;
-            font-weight: 300;
-            color: var(--accent-color);
-            margin-top: 10px;
-            animation: slideInLeft 1s ease-out 0.5s both;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .contact-info {
-            font-size: 1em;
-            color: var(--text-secondary);
-            margin-top: 20px;
-            animation: slideInRight 1s ease-out 1s both;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--text-light);
-            transform: scale(1.05);
-        }
-
-        /* --- Section Titles --- Enhanced with Underline Animation */
-        .section {
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .section-title {
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 5px;
             position: relative;
             display: inline-block;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            padding-bottom: 0.5rem;
         }
-
         .section-title::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.5s ease;
+            width: 50%;
+            height: 4px;
+            background-color: #38bdf8; /* Tailwind sky-400 */
+            border-radius: 9999px;
         }
-
-        .section-title:hover::after {
-            width: 100%;
+        .typing-cursor {
+            border-right: 2px solid #fff;
+            animation: blink 0.75s step-end infinite;
         }
-
-        .section-subtitle {
-            font-size: 1em;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            font-weight: 600;
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #fff }
         }
-
-        /* --- Profile/Text Block --- Enhanced Typography */
-        .profile-text {
-            font-size: 1.1em;
-            color: var(--text-secondary);
-            text-align: justify;
-            padding-bottom: 20px;
-            line-height: 1.8;
+        .card-glow:hover {
+            box-shadow: 0 0 15px 0 var(--accent-color);
+            transform: translateY(-4px);
         }
-        
-        /* --- Skills Styling --- Enhanced with Icons and Sliding Animation */
-        .skills-group h3 {
-            color: var(--text-light);
-            font-size: 1.2em;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-            padding-bottom: 5px;
-            margin-top: 25px;
-            margin-bottom: 15px;
+        /* Mobile adjustment for padding */
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
-
-        .skill-list {
-            list-style: none;
-            padding: 0;
-            margin-left: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .skill-tag {
-            background-color: rgba(0, 170, 255, 0.1);
-            color: var(--accent-color);
-            padding: 10px 15px;
-            border-radius: 25px; /* More rounded for modern look */
-            margin: 5px 10px 5px 0;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideInSkills 0.6s ease forwards;
-        }
-
-        .skill-tag:nth-child(1) { animation-delay: 0.1s; }
-        .skill-tag:nth-child(2) { animation-delay: 0.2s; }
-        .skill-tag:nth-child(3) { animation-delay: 0.3s; }
-        .skill-tag:nth-child(4) { animation-delay: 0.4s; }
-        .skill-tag:nth-child(5) { animation-delay: 0.5s; }
-        .skill-tag:nth-child(6) { animation-delay: 0.6s; }
-        /* Continue for more items as needed */
-
-        @keyframes slideInSkills {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .skill-tag:hover {
-            background-color: var(--accent-color);
-            color: var(--background-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--shadow-light);
-        }
-
-        .skill-tag i {
-            font-size: 1.1em;
-            width: 16px;
-        }
-        
-        /* --- Entry Styling (Experience, Education, Projects) --- Enhanced with Hover Effects */
-        .entry {
-            margin-bottom: 35px;
-            padding: 20px 0;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 20px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .entry::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-            transition: width 0.6s ease;
-        }
-
-        .entry:hover::before {
-            width: 100%;
-        }
-
-        .entry:hover {
-            border-left: 6px solid var(--accent-color);
-            box-shadow: 0 5px 20px var(--shadow-light);
-            transform: translateX(5px);
-        }
-        
-        .entry h4 {
-            font-size: 1.4em;
-            color: var(--text-light);
-            margin: 0;
-            font-weight: 600;
-        }
-
-        .entry-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 10px;
-        }
-
-        .entry-details p {
-            margin: 5px 0;
-            color: var(--text-secondary);
-            font-style: italic;
-            font-size: 0.95em;
-        }
-
-        .entry-details .timeframe {
-            font-weight: 600;
-            color: var(--accent-color);
-            white-space: nowrap;
-        }
-
-        .entry ul {
-            list-style: none;
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        .entry ul li {
-            margin-bottom: 8px;
-            color: var(--text-secondary);
-            position: relative;
-            font-size: 0.95em;
-            transition: color 0.3s ease;
-        }
-
-        .entry:hover ul li {
-            color: var(--text-light);
-        }
-        
-        .entry ul li::before {
-            content: '•';
-            color: var(--accent-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        
-        /* Specific List for Languages/Interests --- Added Icons */
-        .small-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .small-list li {
-            margin-bottom: 5px;
-            color: var(--text-secondary);
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .small-list li:hover {
-            color: var(--accent-color);
-        }
-
-        .small-list li i {
-            color: var(--accent-color);
-            width: 16px;
-        }
-
-        /* --- Footer --- Enhanced */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
-            font-size: 0.85em;
-            margin-top: 50px;
-            background: var(--background-darker);
-            border-radius: 10px;
-        }
-
-        /* Responsive Design Improvements */
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 3em;
-            }
-
-            .section-title {
-                font-size: 2.2em;
-            }
-
-            .skill-list {
-                justify-content: center;
-            }
-
-            .entry-details {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        /* Intersection Observer for Scroll Animations (via JS below) */
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="antialiased">
 
-        <div class="hero-section">
-            <h1>AMAN RAJ</h1>
-            <p class="subtitle">Software Developer (Python/Django)</p>
-            <div class="contact-info">
-                <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span> | 
-                <a href="tel:+919097972453"><i class="fas fa-phone"></i> +91 9097972453</a> | 
-                <a href="mailto:ar.amanraj01@gmail.com"><i class="fas fa-envelope"></i> ar.amanraj01@gmail.com</a> |
-                <a href="https://www.linkedin.com/in/aman-raj-601534224/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
-                <!-- <a href="[Your GitHub URL]" target="_blank"><i class="fab fa-github"></i> GitHub</a> -->
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-sm shadow-xl shadow-cyan-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero" class="text-xl font-bold text-cyan-400">Aman Raj <span class="text-white">Portfolio</span></a>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#skills" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Skills</a>
+                    <a href="#experience" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Experience</a>
+                    <a href="#projects" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                    <a href="#education" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Education</a>
+                    <a href="#contact" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                </div>
             </div>
         </div>
+    </nav>
 
-        <div class="section" id="profile">
-            <p class="section-subtitle">ABOUT</p>
-            <h2 class="section-title">Who I Am</h2>
-            <p class="profile-text">
-                Detail-oriented software developer with a Master’s in Computer Applications and proven
-                experience in developing robust web applications using Python/Django. Proficient in full-stack technologies, including JavaScript, and SQL Server, with a strong focus on building efficient patient management systems (HIS). Expertise in user authentication, data validation, and dynamic form handling. Committed to delivering high-quality code, optimizing application performance, and applying best practices in software development. Strong problem-solving skills and a dedication to enhancing user experience.
+    <main class="max-w-7xl mx-auto pt-8 pb-16">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="min-h-[80vh] flex items-center container mx-auto py-16">
+            <div class="lg:w-3/4">
+                <div data-aos="fade-down" data-aos-duration="1000">
+                    <p class="text-xl text-gray-400 font-medium mb-2">Hello, I'm a...</p>
+                    <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-cyan-400 mb-6 tracking-tight">
+                        Aman Raj
+                    </h1>
+                </div>
+                <h2 id="typing-text" class="text-3xl sm:text-4xl font-semibold text-white mb-8 min-h-[50px]" data-aos="fade-left" data-aos-delay="500">
+                    <!-- Typing text will appear here -->
+                </h2>
+                <p class="text-gray-400 text-lg leading-relaxed lg:w-3/4" data-aos="fade-up" data-aos-delay="700">
+                    Detail-oriented software developer with a Master’s in Computer Applications, specializing in **Django/Python web application development**. Proven expertise in building efficient **Patient Management Systems** with a strong focus on data validation, user authentication, and performance optimization.
+                </p>
+                <div class="mt-8 space-x-4" data-aos="fade-up" data-aos-delay="1000">
+                    <a href="#experience" class="inline-block px-8 py-3 bg-cyan-600 text-black font-semibold rounded-full hover:bg-cyan-500 transition-transform duration-300 hover:scale-105 shadow-lg shadow-cyan-500/50">View Work</a>
+                    <a href="mailto:ar.amanraj01@gmail.com" class="inline-block px-8 py-3 border border-cyan-400 text-cyan-400 font-semibold rounded-full hover:bg-cyan-900 transition-colors">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Technical Skills -->
+        <div class="border-t border-cyan-900/50 my-12"></div>
+        <section id="skills" class="container mx-auto py-12">
+            <h2 class="section-title mb-10" data-aos="fade-right">Technical Skills</h2>
+            
+            <!-- Programming Languages & Frameworks -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div data-aos="fade-up" class="bg-[#111827] p-6 rounded-xl shadow-2xl transition-all card-glow">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4 flex items-center"><i class="fas fa-code mr-3"></i> Core Development</h3>
+                    <div class="space-y-4">
+                        <div class="skill-bar" data-skill="Python (Django/DRF)" data-level="90"></div>
+                        <div class="skill-bar" data-skill="Java (Spring/Hibernate)" data-level="75"></div>
+                        <div class="skill-bar" data-skill="JavaScript / jQuery / AJAX" data-level="80"></div>
+                        <div class="skill-bar" data-skill="SQL Server / MySQL / Postgres" data-level="85"></div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies & Frontend -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-[#111827] p-6 rounded-xl shadow-2xl transition-all card-glow">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4 flex items-center"><i class="fas fa-desktop mr-3"></i> Web & Frontend</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>HTML5 & CSS3</li>
+                        <li>Bootstrap (Responsive Design)</li>
+                        <li>AJAX for Asynchronous Loading</li>
+                        <li>Chart.js (Data Visualization)</li>
+                    </ul>
+                </div>
+
+                <!-- Soft Skills -->
+                <div data-aos="fade-up" data-aos-delay="400" class="bg-[#111827] p-6 rounded-xl shadow-2xl transition-all card-glow">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4 flex items-center"><i class="fas fa-user-tie mr-3"></i> Soft Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-cyan-800/40 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full">Communication</span>
+                        <span class="bg-cyan-800/40 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full">Collaboration</span>
+                        <span class="bg-cyan-800/40 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full">Problem-Solving</span>
+                        <span class="bg-cyan-800/40 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full">Adaptability</span>
+                        <span class="bg-cyan-800/40 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full">Continuous Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Experience -->
+        <div class="border-t border-cyan-900/50 my-12"></div>
+        <section id="experience" class="container mx-auto py-12">
+            <h2 class="section-title mb-10" data-aos="fade-right">Professional Experience</h2>
+
+            <div class="space-y-8 relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-4 lg:left-1/2 w-0.5 h-full bg-cyan-900 transform -translate-x-1/2"></div>
+                
+                <!-- Job 1: Cytecare Hospital -->
+                <div class="relative flex justify-between md:items-center w-full md:left-0 md:flex-row-reverse">
+                    <div class="md:w-5/12 bg-[#0a0a0a] p-6 rounded-xl shadow-2xl border border-cyan-800/50 transition-all card-glow" data-aos="fade-left" data-aos-delay="200">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-semibold text-white">Associate in Information Technology</h3>
+                            <span class="text-sm font-medium text-cyan-400">Dec 2024 – Present</span>
+                        </div>
+                        <p class="text-lg text-cyan-300 mb-3">Cytecare Hospital</p>
+                        <ul class="list-disc ml-5 text-gray-400 space-y-2">
+                            <li>Developed and maintained internal hospital web applications using **Python (Django), HTML, CSS, JavaScript, and AJAX** to enhance HIS operations.</li>
+                            <li>Implemented **AJAX for asynchronous data loading**, significantly improving application performance and user experience.</li>
+                            <li>Provided application and IT support for the existing HIS, troubleshooting errors, and coordinating vendor escalations.</li>
+                            <li>Collaborated with clinical, administrative, and IT teams to understand requirements and deliver user-friendly solutions.</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline dot -->
+                    <div class="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-800 z-10 hidden md:block"></div>
+                </div>
+
+                <!-- Job 2: Octanet Services Pvt Ltd -->
+                <div class="relative flex justify-between md:items-center w-full md:left-0 md:flex-row">
+                    <div class="md:w-5/12 bg-[#0a0a0a] p-6 rounded-xl shadow-2xl border border-cyan-800/50 transition-all card-glow" data-aos="fade-right" data-aos-delay="200">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-semibold text-white">Java Developer Intern</h3>
+                            <span class="text-sm font-medium text-cyan-400">Octanet Services Pvt Ltd</span>
+                        </div>
+                        <ul class="list-disc ml-5 text-gray-400 space-y-2">
+                            <li>Developed and maintained **Java applications** using Spring and Hibernate frameworks.</li>
+                            <li>Actively contributed to **Agile sprints**, including planning, implementation, and retrospectives.</li>
+                            <li>Debugged and resolved code issues to enhance application performance.</li>
+                            <li>Conducted code reviews to maintain coding standards and collaborate on new features.</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline dot -->
+                    <div class="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-800 z-10 hidden md:block"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projects -->
+        <div class="border-t border-cyan-900/50 my-12"></div>
+        <section id="projects" class="container mx-auto py-12">
+            <h2 class="section-title mb-10" data-aos="fade-right">Personal Projects</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: COVID-19 Vaccination Progress Analysis -->
+                <div class="bg-[#111827] p-6 rounded-xl shadow-2xl border border-cyan-800/50 transition-all card-glow" data-aos="zoom-in">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-3 flex items-center"><i class="fas fa-chart-line mr-3"></i> COVID-19 Vaccination Progress Analysis</h3>
+                    <p class="text-gray-300 mb-4">Led a data analytics project that provided crucial insights for public health interventions and policy decisions.</p>
+                    <ul class="list-disc ml-5 text-gray-400 space-y-1 mb-4">
+                        <li>Utilized **Anaconda Jupyter Notebook & Python** for data extraction and analysis.</li>
+                        <li>Extracted valuable insights to inform policy-making and optimize resource allocation.</li>
+                    </ul>
+                    <a href="#" class="text-sm text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center">
+                        View Code <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Certification Section Placeholder for two column layout -->
+                <div class="bg-[#111827] p-6 rounded-xl shadow-2xl border border-cyan-800/50 transition-all card-glow" data-aos="zoom-in" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-3 flex items-center"><i class="fas fa-certificate mr-3"></i> Certifications</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center text-gray-300"><i class="fas fa-database text-cyan-500 mr-3"></i> MySQL Basics</div>
+                        <div class="flex items-center text-gray-300"><i class="fas fa-cubes text-cyan-500 mr-3"></i> Big Data Computing</div>
+                        <div class="flex items-center text-gray-300"><i class="fas fa-shield-alt text-cyan-500 mr-3"></i> Network Security</div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-cyan-400 mt-6 mb-3 flex items-center"><i class="fas fa-globe mr-3"></i> Languages</h3>
+                    <div class="space-y-1 text-gray-300">
+                        <p>Hindi – Native/Bilingual Proficiency</p>
+                        <p>English – Full Professional Proficiency</p>
+                        <p>German – Beginner</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Education -->
+        <div class="border-t border-cyan-900/50 my-12"></div>
+        <section id="education" class="container mx-auto py-12">
+            <h2 class="section-title mb-10" data-aos="fade-right">Education</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- MCA -->
+                <div class="bg-[#111827] p-6 rounded-xl shadow-2xl border-l-4 border-cyan-500" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-white">Master of Computer Applications (MCA)</h3>
+                    <p class="text-cyan-400 my-1">Visvesvaraya Technological University, Bangalore</p>
+                    <p class="text-gray-400 text-sm">Jan 2023 – Oct 2024 | Grade: 80.00%</p>
+                </div>
+
+                <!-- BCA -->
+                <div class="bg-[#111827] p-6 rounded-xl shadow-2xl border-l-4 border-cyan-500" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-white">Bachelor of Computer Applications (BCA)</h3>
+                    <p class="text-cyan-400 my-1">Indira Gandhi National Open University, Delhi</p>
+                    <p class="text-gray-400 text-sm">Dec 2018 – Jan 2022 | Grade: 66.43%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact & Footer -->
+        <div class="border-t border-cyan-900/50 my-12"></div>
+        <section id="contact" class="container mx-auto py-12 text-center">
+            <h2 class="section-title mx-auto mb-8" data-aos="fade-up">Let's Connect</h2>
+            <p class="text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">
+                I'm always looking for opportunities to build innovative, efficient software. Reach out for development roles or collaboration.
             </p>
-        </div>
+            
+            <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="mailto:ar.amanraj01@gmail.com" class="p-4 bg-cyan-700/50 rounded-full text-cyan-300 hover:bg-cyan-600 transition-colors shadow-lg shadow-cyan-800/50">
+                    <i class="fas fa-envelope fa-2x"></i>
+                </a>
+                <a href="tel:+919097972453" class="p-4 bg-cyan-700/50 rounded-full text-cyan-300 hover:bg-cyan-600 transition-colors shadow-lg shadow-cyan-800/50">
+                    <i class="fas fa-phone fa-2x"></i>
+                </a>
+                <!-- Placeholder for LinkedIn/GitHub -->
+                <a href="#" class="p-4 bg-gray-800/50 rounded-full text-gray-300 hover:bg-gray-700 transition-colors">
+                    <i class="fab fa-linkedin-in fa-2x"></i>
+                </a>
+                <a href="#" class="p-4 bg-gray-800/50 rounded-full text-gray-300 hover:bg-gray-700 transition-colors">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
+        </section>
 
-        <div class="section" id="experience">
-            <p class="section-subtitle">CAREER PATH</p>
-            <h2 class="section-title">Experience</h2>
-            
-            <div class="entry">
-                <div class="entry-details">
-                    <h4>Associate in Information Technology (Development & Application Support)</h4>
-                    <p class="timeframe">Dec 2024 – Present</p>
-                </div>
-                <p class="entry-title">Cytecare Hospital</p>
-                <ul>
-                    <li>Developed and maintained internal hospital web applications using Python (Django), HTML, CSS, JavaScript, and AJAX to enhance and complement HIS operations.</li>
-                    <li>Provided application and IT support for the existing Hospital Information System (HIS), assisting staff with day-to-day issues, troubleshooting errors, and coordinating with vendors.</li>
-                    <li>Implemented AJAX for asynchronous data loading, significantly improving application performance and user experience.</li>
-                    <li>Collaborated with clinical, administrative, and IT teams to understand requirements and deliver user-friendly solutions.</li>
-                </ul>
-            </div>
-            
-            <div class="entry">
-                <div class="entry-details">
-                    <h4>Java Developer Intern</h4>
-                    <p class="timeframe">Dates/Duration Here</p>
-                </div>
-                <p class="entry-title">Octanet Services Pvt Ltd</p>
-                <ul>
-                    <li>Developed and maintained Java applications using **Spring and Hibernate** frameworks.</li>
-                    <li>Debugged and resolved code issues to enhance application performance.</li>
-                    <li>Actively contributed to **Agile sprints**, including planning and retrospectives.</li>
-                </ul>
-            </div>
-        </div>
+    </main>
 
-        <div class="section" id="skills">
-            <p class="section-subtitle">MY TOOLKIT</p>
-            <h2 class="section-title">Technical Skills</h2>
-            
-            <div class="skills-group">
-                <h3>Programming Languages & Frameworks</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag"><i class="fab fa-python"></i> Python</li>
-                    <li class="skill-tag"><i class="fas fa-cogs"></i> Django</li>
-                    <li class="skill-tag"><i class="fas fa-exchange-alt"></i> Django REST Framework</li>
-                    <li class="skill-tag"><i class="fab fa-java"></i> Java</li>
-                </ul>
-                
-                <h3>Web Technologies & Frontend</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag"><i class="fab fa-html5"></i> HTML</li>
-                    <li class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</li>
-                    <li class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</li>
-                    <li class="skill-tag"><i class="fab fa-js-square"></i> jQuery</li>
-                    <li class="skill-tag"><i class="fas fa-sync-alt"></i> AJAX</li>
-                    <li class="skill-tag"><i class="fab fa-bootstrap"></i> Bootstrap (for responsive design)</li>
-                </ul>
-                
-                <h3>Database & Tools</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag"><i class="fas fa-database"></i> MySQL</li>
-                    <li class="skill-tag"><i class="fas fa-database"></i> MSSQL</li>
-                    <li class="skill-tag"><i class="fas fa-database"></i> Postgres</li>
-                    <li class="skill-tag"><i class="fas fa-chart-bar"></i> Chart.js (Data Visualization)</li>
-                    <li class="skill-tag"><i class="fas fa-envelope"></i> SMTP</li>
-                    <li class="skill-tag"><i class="fas fa-file-alt"></i> Python Logging Module</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="section" id="projects">
-            <p class="section-subtitle">WORKS</p>
-            <h2 class="section-title">Personal Projects</h2>
-            
-            <div class="entry">
-                <div class="entry-details">
-                    <h4>COVID-19 Vaccination Progress Analysis</h4>
-                    <p class="timeframe">Data Analytics Project</p>
-                </div>
-                <p class="entry-title">Led a data analytics project using Python to analyze COVID-19 vaccination progress.</p>
-                <ul>
-                    <li>Utilized **Anaconda Jupyter Notebook & Python** for core data analysis and modeling.</li>
-                    <li>Extracted valuable insights used to inform policy-making and resource allocation.</li>
-                    <li>Contributed analytical findings that supported successful vaccination efforts.</li>
-                </ul>
-            </div>
-        </div>
+    <footer class="text-center py-6 border-t border-cyan-900/50 text-gray-500 text-sm">
+        <p>Aman Raj | Developed with 🖤 and <span class="text-cyan-400">Code</span></p>
+        <p class="mt-1">Interests: Ethical Hacking & Software Development</p>
+    </footer>
 
-        <div class="section" id="education">
-            <p class="section-subtitle">LEARNING</p>
-            <h2 class="section-title">Education & Certifications</h2>
-            
-            <div class="entry">
-                <div class="entry-details">
-                    <h4>Master of Computer Applications (80.00%)</h4>
-                    <p class="timeframe">Jan 2023 – Oct 2024</p>
-                </div>
-                <p class="entry-title">Visvesvaraya Technological University, Bangalore</p>
-            </div>
-            <div class="entry">
-                <div class="entry-details">
-                    <h4>Bachelor of Computer Applications (66.43%)</h4>
-                    <p class="timeframe">Dec 2018 – Jan 2022</p>
-                </div>
-                <p class="entry-title">Indira Gandhi National Open University, Delhi</p>
-            </div>
-            
-            <h3 style="color: var(--accent-color); margin-top: 30px;">Certifications</h3>
-            <ul class="skill-list">
-                <li class="skill-tag"><i class="fas fa-certificate"></i> MySQL Basics</li>
-                <li class="skill-tag"><i class="fas fa-certificate"></i> Big Data Computing</li>
-                <li class="skill-tag"><i class="fas fa-certificate"></i> Network Security</li>
-            </ul>
-        </div>
-        
-        <div class="section" id="other">
-            <p class="section-subtitle">OTHERS</p>
-            <h2 class="section-title">Soft Skills & Interests</h2>
-            
-            <h3 style="color: var(--accent-color); margin-top: 0;">Soft Skills</h3>
-            <ul class="skill-list">
-                <li class="skill-tag"><i class="fas fa-users"></i> Communication</li>
-                <li class="skill-tag"><i class="fas fa-handshake"></i> Collaboration</li>
-                <li class="skill-tag"><i class="fas fa-lightbulb"></i> Problem-Solving</li>
-                <li class="skill-tag"><i class="fas fa-exchange-alt"></i> Adaptability</li>
-                <li class="skill-tag"><i class="fas fa-graduation-cap"></i> Continuous Learning</li>
-            </ul>
-            
-            <h3 style="color: var(--accent-color); margin-top: 30px;">Languages</h3>
-            <ul class="small-list">
-                <li><i class="fas fa-language"></i> Hindi – Native/Bilingual Proficiency</li>
-                <li><i class="fas fa-language"></i> English – Full Professional Proficiency</li>
-                <li><i class="fas fa-language"></i> German – Beginner</li>
-            </ul>
-            
-            <h3 style="color: var(--accent-color); margin-top: 30px;">Interests</h3>
-            <ul class="small-list">
-                <li><i class="fas fa-shield-alt"></i> Ethical Hacking</li>
-                <li><i class="fas fa-code"></i> Software Development</li>
-            </ul>
-        </div>
-
-        <footer>
-            <small><i class="fas fa-heart" style="color: var(--accent-color);"></i> Designed and Built by Aman Raj | Inspired by Modern Dark Portfolio Themes</small>
-        </footer>
-    </div>
-
-    <!-- JavaScript for Scroll Animations using Intersection Observer -->
+    <!-- Load AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Intersection Observer for fade-in animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // 1. Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 1200, // Duration of animation
+                once: true,      // Whether animation should happen only once
+            });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+            // 2. Typing Effect Script
+            const titles = [
+                "Detail-Oriented Software Developer", 
+                "Django/Python Specialist", 
+                "Web Application Enthusiast"
+            ];
+            const typingTextElement = document.getElementById('typing-text');
+            let titleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentTitle = titles[titleIndex];
+                if (!isDeleting) {
+                    typingTextElement.innerHTML = currentTitle.substring(0, charIndex) + '<span class="typing-cursor"></span>';
+                    charIndex++;
+                    if (charIndex > currentTitle.length) {
+                        isDeleting = true;
+                        // Pause before starting to delete
+                        setTimeout(type, 1500); 
+                        return;
+                    }
+                } else {
+                    typingTextElement.innerHTML = currentTitle.substring(0, charIndex) + '<span class="typing-cursor"></span>';
+                    charIndex--;
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        titleIndex = (titleIndex + 1) % titles.length;
+                        // Pause before starting next title
+                        setTimeout(type, 500); 
+                        return;
+                    }
                 }
-            });
-        }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
+                const speed = isDeleting ? 50 : 100;
+                setTimeout(type, speed);
+            }
 
-        // Additional smooth hover effects or other interactions if needed
-        document.addEventListener('DOMContentLoaded', function() {
-            // Preload animations for skills if desired
-            const skillTags = document.querySelectorAll('.skill-tag');
-            skillTags.forEach((tag, index) => {
-                tag.style.animationDelay = `${index * 0.1}s`;
+            type(); // Start the typing effect
+
+            // 3. Skill Bar Generation
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const skillName = bar.getAttribute('data-skill');
+                const level = parseInt(bar.getAttribute('data-level'));
+                
+                // HTML structure for the skill bar
+                bar.innerHTML = `
+                    <div class="flex justify-between mb-1">
+                        <span class="text-sm font-medium text-gray-300">${skillName}</span>
+                        <span class="text-sm font-medium text-cyan-400">${level}%</span>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2.5">
+                        <div class="bg-cyan-500 h-2.5 rounded-full" 
+                             style="width: 0%" 
+                             data-target-width="${level}">
+                        </div>
+                    </div>
+                `;
             });
+            
+            // 4. Skill Bar Animation (Triggered by AOS scroll)
+            function animateSkillBars() {
+                skillBars.forEach(bar => {
+                    const progressBar = bar.querySelector('[data-target-width]');
+                    const targetWidth = progressBar.getAttribute('data-target-width');
+                    
+                    // Animate the width property
+                    progressBar.style.transition = 'width 2s ease-out';
+                    progressBar.style.width = `${targetWidth}%`;
+                });
+            }
+
+            // Observe the skills section and trigger animation when visible
+            const skillsSection = document.getElementById('skills');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target); // Stop observing after animation runs once
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            });
+
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
         });
     </script>
+
 </body>
 </html>
